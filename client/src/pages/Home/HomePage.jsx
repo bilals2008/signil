@@ -5,6 +5,7 @@ import MagneticButton from '@/components/ui/MagneticButton'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import ProblemSolution from '@/components/sections/ProblemSolution'
+import FeaturesSection from '@/components/sections/FeaturesSection'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const words = ["In", "Athletes", "Agents", "Advisors", "Institutions"];
@@ -81,6 +82,8 @@ const HomePage = () => {
       </div> {/* Closing Hero Section */}
 
       <ProblemSolution />
+
+      <FeaturesSection />
 
       <Footer />
     </div>
