@@ -67,6 +67,54 @@ const AthletesPage = () => {
                         ))}
                     </div>
 
+                    {/* Pricing Section */}
+                    <div className="w-full bg-[#163146] rounded-3xl py-16 px-6 flex flex-col items-center text-center gap-12 text-white">
+                        {/* Section Heading */}
+                        <div className="space-y-4">
+                            <h2 className="text-4xl md:text-5xl font-serif">
+                                <span className="text-[#986a41]">Athlete</span> Pricing
+                            </h2>
+                            <p className="text-gray-300 font-light max-w-xl mx-auto text-lg">
+                                For athletes ready to take control of their NIL journey—smarter, safer, and stronger.
+                            </p>
+                        </div>
+
+                        {/* Pricing Card */}
+                        <div className="bg-white text-[#163146] rounded-xl p-8 shadow-2xl w-full max-w-[420px] flex flex-col items-center gap-6">
+
+                            <div className="space-y-1">
+                                <h3 className="font-serif font-bold text-2xl tracking-wide uppercase text-[#163146]">ASSOCIATE</h3>
+                                <div className="flex items-baseline justify-center gap-1 text-[#163146]">
+                                    <span className="text-5xl font-serif font-bold">$0</span>
+                                    <span className="text-gray-500 font-medium">/month</span>
+                                </div>
+                            </div>
+
+                            {/* Features List */}
+                            <ul className="flex flex-col gap-4 text-left w-full px-4">
+                                {[
+                                    "Personalized Advisor Matching",
+                                    "Unlimited Secure Messaging",
+                                    "Contract & Opportunity Screening",
+                                    "Brand Growth Resources",
+                                    "NIL Opportunity Marketplace Access"
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-3 text-sm font-medium text-gray-700">
+                                        <svg className="w-5 h-5 text-green-500 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <button className="w-full bg-[#986a41] hover:bg-[#855a35] text-white font-semibold rounded-full py-4 text-lg transition-colors shadow-md mt-2">
+                                Join the Waitlist
+                            </button>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

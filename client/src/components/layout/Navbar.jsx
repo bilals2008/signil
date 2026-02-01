@@ -1,6 +1,7 @@
 // File: client/src/components/layout/Navbar.jsx
 import React, { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button"; // Assuming shadcn button is available or I'll use standard tailwind if not
+import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom'; // Assuming shadcn button is available or I'll use standard tailwind if not
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -23,9 +24,9 @@ const Navbar = () => {
 
                 {/* Links */}
                 <div className="hidden md:flex items-center gap-8">
-                    <a href="#" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
+                    <Link to="/athletes" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
                         Athletes
-                    </a>
+                    </Link>
                     <a href="#" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
                         Advisors & Agents
                     </a>
