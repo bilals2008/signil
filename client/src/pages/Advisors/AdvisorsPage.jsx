@@ -135,8 +135,8 @@ const AdvisorsPage = () => {
         <div ref={containerRef} className="min-h-screen w-full bg-[#fdfdfd] flex flex-col font-sans selection:bg-[#163146] selection:text-white overflow-x-hidden">
             <Navbar />
 
-            {/* Elite Mesh Background */}
-            <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+            {/* Elite Mesh Background - Hidden on mobile */}
+            <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden max-sm:hidden">
                 <motion.div
                     style={{ y: backgroundY }}
                     className="absolute -top-[10%] -left-[5%] w-[60%] h-[60%] bg-[#163146]/5 rounded-full blur-[120px] mix-blend-multiply opacity-60"
@@ -229,7 +229,7 @@ const AdvisorsPage = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                                    className={`group relative overflow-hidden bg-white/60 backdrop-blur-sm rounded-[2.5rem] max-sm:rounded-3xl border border-gray-100/80 p-10 max-sm:p-6 transition-all duration-700 hover:shadow-[0_40px_80px_-20px_rgba(22,49,70,0.08)] hover:-translate-y-1 ${card.size === 'md:col-span-3' ? 'md:col-span-12' : card.size === 'md:col-span-2' ? 'md:col-span-8' : 'md:col-span-4'}`}
+                                    className={`group relative overflow-hidden bg-white/60 backdrop-blur-sm max-sm:backdrop-blur-none max-sm:bg-white rounded-[2.5rem] max-sm:rounded-3xl border border-gray-100/80 p-10 max-sm:p-6 transition-all duration-700 hover:shadow-[0_40px_80px_-20px_rgba(22,49,70,0.08)] max-sm:shadow-md hover:-translate-y-1 active:scale-[0.98] ${card.size === 'md:col-span-3' ? 'md:col-span-12' : card.size === 'md:col-span-2' ? 'md:col-span-8' : 'md:col-span-4'}`}
                                 >
                                     <div className="absolute inset-0 bg-linear-to-br from-[#163146]/2 to-transparent pointer-events-none" />
 
@@ -275,7 +275,7 @@ const AdvisorsPage = () => {
                 <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 items-center flex flex-col">
 
                     <div className="text-center mb-20 max-sm:mb-12 space-y-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-lg">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-lg max-sm:backdrop-blur-none max-sm:bg-white/20">
                             <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/80">Professional Tiers</span>
                         </div>
                         <h2 className="text-5xl md:text-7xl max-sm:text-3xl font-serif text-white leading-[1.1] tracking-tight">
@@ -296,7 +296,7 @@ const AdvisorsPage = () => {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                                className={`group relative bg-white rounded-[2.5rem] max-sm:rounded-4xl p-10 max-sm:p-6 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.3)] transition-all duration-700 hover:-translate-y-2 flex flex-col ${tier.isBestValue ? 'ring-2 ring-[#986a41]/30' : ''}`}
+                                className={`group relative bg-white rounded-[2.5rem] max-sm:rounded-4xl p-10 max-sm:p-6 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.3)] max-sm:shadow-lg transition-all duration-700 hover:-translate-y-2 flex flex-col ${tier.isBestValue ? 'ring-2 ring-[#986a41]/30' : ''}`}
                             >
                                 {tier.isBestValue && (
                                     <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">

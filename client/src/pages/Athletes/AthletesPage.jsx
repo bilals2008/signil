@@ -60,8 +60,8 @@ const AthletesPage = () => {
         <div ref={containerRef} className="relative min-h-screen w-full bg-[#fdfdfd] flex flex-col font-sans selection:bg-[#163146] selection:text-white overflow-x-hidden">
             <Navbar />
 
-            {/* Dynamic Mesh Background Overlay */}
-            <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+            {/* Dynamic Mesh Background Overlay - Hidden on mobile */}
+            <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden max-sm:hidden">
                 <motion.div
                     style={{ y: backgroundY }}
                     className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-[#163146]/5 rounded-full blur-[120px] mix-blend-multiply opacity-60"
@@ -73,7 +73,7 @@ const AthletesPage = () => {
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
             </div>
 
-            <main className="flex-grow pt-32 pb-24 max-sm:pt-24 max-sm:pb-16 px-4 sm:px-6 lg:px-8 relative z-10">
+            <main className="grow pt-32 pb-24 max-sm:pt-24 max-sm:pb-16 px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="max-w-7xl mx-auto">
 
                     {/* Elite Hero Section */}
@@ -104,7 +104,7 @@ const AthletesPage = () => {
                                     initial={{ scaleX: 0 }}
                                     animate={{ scaleX: 1 }}
                                     transition={{ duration: 1, delay: 0.8 }}
-                                    className="absolute -bottom-2 left-0 w-full h-[2px] bg-[#986a41]/20 origin-left"
+                                    className="absolute -bottom-2 left-0 w-full h-0.5 bg-[#986a41]/20 origin-left"
                                 />
                             </span>
                         </motion.h1>
@@ -130,9 +130,9 @@ const AthletesPage = () => {
                         {/* Feature 1 - Hero Card */}
                         <motion.div
                             variants={itemVariants}
-                            className="md:col-span-8 md:row-span-2 group relative overflow-hidden bg-white/60 backdrop-blur-sm rounded-[2.5rem] max-sm:rounded-3xl border border-gray-100/80 p-12 max-sm:p-6 transition-all duration-700 hover:shadow-[0_40px_80px_-20px_rgba(22,49,70,0.08)] hover:-translate-y-1"
+                            className="md:col-span-8 md:row-span-2 group relative overflow-hidden bg-white/60 backdrop-blur-sm max-sm:backdrop-blur-none max-sm:bg-white rounded-[2.5rem] max-sm:rounded-3xl border border-gray-100/80 p-12 max-sm:p-6 transition-all duration-700 hover:shadow-[0_40px_80px_-20px_rgba(22,49,70,0.08)] max-sm:shadow-md hover:-translate-y-1 active:scale-[0.98]"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#163146]/[0.02] to-transparent pointer-events-none" />
+                            <div className="absolute inset-0 bg-linear-to-br from-[#163146]/2 to-transparent pointer-events-none" />
                             <div className="relative h-full flex flex-col justify-between z-10">
                                 <div className="space-y-8 max-sm:space-y-4">
                                     <div className="w-16 h-16 max-sm:w-12 max-sm:h-12 rounded-2xl max-sm:rounded-xl bg-[#163146] flex items-center justify-center text-white shadow-2xl shadow-[#163146]/20 group-hover:scale-110 transition-transform duration-500">
@@ -152,7 +152,7 @@ const AthletesPage = () => {
                                 <div className="mt-12 max-sm:mt-6 p-8 max-sm:p-4 bg-gray-50/50 rounded-3xl max-sm:rounded-2xl border border-gray-100/50 flex items-center justify-center overflow-hidden">
                                     <div className="w-full flex flex-col gap-4 opacity-40 group-hover:opacity-80 transition-opacity duration-700">
                                         <div className="h-2 w-1/3 bg-[#163146]/20 rounded-full" />
-                                        <div className="h-2 w-full bg-gradient-to-r from-[#163146]/10 to-transparent rounded-full" />
+                                        <div className="h-2 w-full bg-linear-to-r from-[#163146]/10 to-transparent rounded-full" />
                                         <div className="h-2 w-2/3 bg-[#163146]/10 rounded-full" />
                                     </div>
                                 </div>
@@ -165,7 +165,7 @@ const AthletesPage = () => {
                                 <motion.div
                                     key={idx}
                                     variants={itemVariants}
-                                    className="flex-1 group relative bg-white/60 backdrop-blur-sm rounded-[2.5rem] max-sm:rounded-3xl border border-gray-100/80 p-10 max-sm:p-6 flex flex-col justify-between hover:shadow-[0_40px_80px_-20px_rgba(22,49,70,0.08)] hover:-translate-y-1 transition-all duration-700"
+                                    className="flex-1 group relative bg-white/60 backdrop-blur-sm max-sm:backdrop-blur-none max-sm:bg-white rounded-[2.5rem] max-sm:rounded-3xl border border-gray-100/80 p-10 max-sm:p-6 flex flex-col justify-between hover:shadow-[0_40px_80px_-20px_rgba(22,49,70,0.08)] max-sm:shadow-md hover:-translate-y-1 active:scale-[0.98] transition-all duration-700"
                                 >
                                     <div className="space-y-6 max-sm:space-y-3">
                                         <div className="w-14 h-14 max-sm:w-10 max-sm:h-10 rounded-2xl max-sm:rounded-xl bg-[#986a41]/10 flex items-center justify-center text-[#986a41] group-hover:bg-[#986a41] group-hover:text-white transition-all duration-500">
@@ -186,9 +186,9 @@ const AthletesPage = () => {
 
                     {/* Elite Pricing Section */}
                     <section className="relative py-32 max-sm:py-16 rounded-[4rem] max-sm:rounded-4xl bg-[#163146] overflow-hidden shadow-[0_50px_100px_-20px_rgba(22,49,70,0.3)]">
-                        <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-white/[0.03] to-transparent pointer-events-none" />
+                        <div className="absolute top-0 right-0 w-full h-full bg-linear-to-bl from-white/3 to-transparent pointer-events-none" />
                         <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#986a41]/20 rounded-full blur-[100px] opacity-40" />
-                        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/[0.05] rounded-full blur-[100px] opacity-20" />
+                        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/5 rounded-full blur-[100px] opacity-20" />
 
                         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-20 max-sm:gap-10 px-8 md:px-20 max-sm:px-6 max-w-6xl mx-auto">
                             <motion.div
@@ -199,7 +199,7 @@ const AthletesPage = () => {
                                 className="flex-1 text-center lg:text-left space-y-8"
                             >
                                 <div className="space-y-6">
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-lg">
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-lg max-sm:backdrop-blur-none max-sm:bg-white/20">
                                         <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50">Membership</span>
                                     </div>
                                     <h2 className="text-5xl md:text-7xl max-sm:text-3xl font-serif text-white leading-[1.1] tracking-tight">
@@ -229,7 +229,7 @@ const AthletesPage = () => {
                                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                 className="w-full max-w-lg"
                             >
-                                <div className="group relative bg-white rounded-[3rem] max-sm:rounded-4xl p-12 md:p-16 max-sm:p-6 shadow-[0_50px_100px_-30px_rgba(0,0,0,0.4)] transition-all duration-700 hover:-translate-y-2">
+                                <div className="group relative bg-white rounded-[3rem] max-sm:rounded-4xl p-12 md:p-16 max-sm:p-6 shadow-[0_50px_100px_-30px_rgba(0,0,0,0.4)] max-sm:shadow-lg transition-all duration-700 hover:-translate-y-2">
                                     <div className="absolute top-8 right-12 max-sm:top-4 max-sm:right-6">
                                         <span className="text-[#986a41] text-[10px] font-black tracking-widest uppercase py-1.5 px-4 bg-[#986a41]/10 rounded-full">WAITLIST OPEN</span>
                                     </div>
@@ -256,7 +256,7 @@ const AthletesPage = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                    <button className="group w-full relative h-20 max-sm:h-14 bg-[#163146] text-white rounded-[1.5rem] font-bold text-xl max-sm:text-base overflow-hidden transition-all duration-500 active:scale-[0.98]">
+                                    <button className="group w-full relative h-20 max-sm:h-14 bg-[#163146] text-white rounded-3xl font-bold text-xl max-sm:text-base overflow-hidden transition-all duration-500 active:scale-[0.98]">
                                         <div className="absolute inset-0 bg-[#986a41] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out" />
                                         <div className="relative z-10 flex items-center justify-center gap-3">
                                             Join the Waitlist
