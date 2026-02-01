@@ -33,9 +33,6 @@ const Navbar = () => {
                     <a href="#" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
                         Institutions
                     </a>
-                    <a href="#" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
-                        Job Market
-                    </a>
                 </div>
 
                 {/* CTA Button */}

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import { UserPlus, BadgeCheck, LayoutGrid, Star, Target } from 'lucide-react';
+import { UserPlus, BadgeCheck, LayoutGrid, Star, Target, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const AdvisorsPage = () => {
@@ -63,9 +63,68 @@ const AdvisorsPage = () => {
                     title: "SMART ATHLETE DISCOVERY",
                     description: "Signil's AI surfaces athletes based on your specialization, no more cold outreach, just warm, qualified leads."
                 }
-            ]
+            ],
+            pricingTitle: "Agent Pricing Tiers"
         }
     };
+
+    const pricingTiers = [
+        {
+            name: "ASSOCIATE",
+            price: "$0",
+            period: "/month",
+            features: [
+                "Access to Scout",
+                "Basic profile listing",
+                "Standard athlete-matching tools",
+                "Secure messaging with matched athletes"
+            ],
+            buttonText: "Join Waitlist",
+            isBestValue: false
+        },
+        {
+            name: "BUSINESS",
+            price: "Pricing coming soon",
+            period: "",
+            features: [
+                "Access to Scout",
+                "Enhanced profile recommendations",
+                "Limited athlete matches",
+                "SIGNIL verification badge",
+                "Basic analytics dashboard"
+            ],
+            buttonText: "Join Waitlist",
+            isBestValue: false
+        },
+        {
+            name: "CORPORATION",
+            price: "Pricing coming soon",
+            period: "",
+            features: [
+                "Access to Scout",
+                "Unlimited athlete matching",
+                "Advanced analytics dashboard",
+                "Priority matching algorithm",
+                "Dedicated account manager"
+            ],
+            buttonText: "Join Waitlist",
+            isBestValue: true
+        },
+        {
+            name: "ENTERPRISE",
+            price: "Pricing coming soon",
+            period: "",
+            features: [
+                "All Corporation benefits",
+                "Multiple user accounts & permissions",
+                "Custom branding & white-label portal",
+                "Tailored pricing & feature bundles",
+                "Full API access for integrations"
+            ],
+            buttonText: "Join Waitlist",
+            isBestValue: false
+        }
+    ];
 
     return (
         <div className="min-h-screen w-full bg-[#faf7f2] flex flex-col font-sans">
@@ -120,7 +179,7 @@ const AdvisorsPage = () => {
                     </div>
 
                     {/* Cards Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-12 mb-32">
                         <AnimatePresence mode='wait'>
                             {content[activeTab].cards.map((card, idx) => (
                                 <motion.div
@@ -132,7 +191,7 @@ const AdvisorsPage = () => {
                                     className="flex flex-col rounded-xl overflow-hidden shadow-md bg-white h-full"
                                 >
                                     {/* Card Header (Dark Navy) */}
-                                    <div className="bg-[#1a2e41] py-4 px-2 flex items-center justify-center min-h-[64px]">
+                                    <div className="bg-[#1a2e41] py-4 px-2 flex items-center justify-center min-h-16">
                                         <span className="text-white font-bold text-sm tracking-widest uppercase text-center">
                                             {card.title}
                                         </span>
@@ -153,6 +212,71 @@ const AdvisorsPage = () => {
                 </div>
             </div>
 
+            {/* Pricing Section (Dark Navy Background) */}
+            <div className="w-full bg-[#163146] py-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+                <div className="max-w-7xl w-full flex flex-col items-center gap-12">
+
+                    {/* Dynamic Pricing Title */}
+                    <div className="text-center space-y-4">
+                        <h2 className="text-4xl md:text-5xl font-serif text-white">
+                            <span className="text-[#986a41]">
+                                {activeTab === 'advisors' ? 'Advisor' : 'Agent'}
+                            </span> Pricing Tiers
+                        </h2>
+                        <p className="text-gray-300 font-light text-lg">
+                            Choose the plan that's right for your practice
+                        </p>
+                    </div>
+
+                    {/* Pricing Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 w-full">
+                        {pricingTiers.map((tier, idx) => (
+                            <div
+                                key={idx}
+                                className={`relative flex flex-col bg-white rounded-xl overflow-hidden ${tier.isBestValue ? 'ring-2 ring-[#986a41]' : ''}`}
+                            >
+                                {tier.isBestValue && (
+                                    <div className="bg-white text-[#986a41] font-bold text-xs uppercase tracking-widest text-center py-2 pt-4">
+                                        (BEST VALUE)
+                                    </div>
+                                )}
+
+                                <div className={`p-6 flex flex-col items-center text-center gap-4 flex-1 ${tier.isBestValue ? 'pt-2' : 'pt-8'}`}>
+                                    <h3 className="text-[#163146] font-serif font-bold text-xl uppercase tracking-wide">
+                                        {tier.name}
+                                    </h3>
+
+                                    <div className="min-h-[60px] flex flex-col justify-center">
+                                        {tier.price.includes('soon') ? (
+                                            <span className="text-gray-500 italic font-medium">{tier.price}</span>
+                                        ) : (
+                                            <div className="flex items-baseline justify-center gap-1 text-[#163146]">
+                                                <span className="text-4xl font-serif font-bold">{tier.price}</span>
+                                                <span className="text-gray-500 font-medium text-sm">{tier.period}</span>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Features List */}
+                                    <ul className="flex flex-col gap-3 text-left w-full mt-4 flex-1">
+                                        {tier.features.map((feature, i) => (
+                                            <li key={i} className="flex items-start gap-2 text-sm text-[#163146]/80 font-medium leading-tight">
+                                                <CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                                                <span>{feature}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <button className="w-full bg-[#986a41] hover:bg-[#855a35] text-white font-semibold rounded-full py-3 text-sm transition-colors shadow-md mt-6">
+                                        {tier.buttonText}
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                </div>
+            </div>
 
             <Footer />
         </div>
