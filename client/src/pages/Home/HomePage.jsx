@@ -4,9 +4,11 @@ import { User, CheckCircle, BrainCircuit } from 'lucide-react'
 import MagneticButton from '@/components/ui/MagneticButton'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import ProblemSolution from '@/components/sections/ProblemSolution'
-import FeaturesSection from '@/components/sections/FeaturesSection'
-import ScoutSection from '@/components/sections/ScoutSection'
+import ProblemSolution from '@/components/HomePage/ProblemSolution'
+import FeaturesSection from '@/components/HomePage/FeaturesSection'
+import ScoutSection from '@/components/HomePage/ScoutSection'
+import FoundersNote from '@/components/HomePage/FoundersNote'
+import FinalCTA from '@/components/HomePage/FinalCTA'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const words = ["In", "Athletes", "Agents", "Advisors", "Institutions"];
@@ -87,6 +89,9 @@ const HomePage = () => {
       <FeaturesSection />
 
       <ScoutSection />
+
+      <FoundersNote />
+      <FinalCTA />
 
       <Footer />
     </div>
