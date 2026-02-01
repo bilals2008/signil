@@ -1,10 +1,12 @@
 // File: client/src/components/layout/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Link } from 'react-router-dom'; // Assuming shadcn button is available or I'll use standard tailwind if not
+import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -37,10 +39,42 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                {/* CTA Button */}
-                <Button className="rounded-full px-6 py-2 font-semibold text-white bg-[#986a41] hover:bg-[#855a35] transition-colors shadow-md">
-                    Join Waitlist
-                </Button>
+                {/* CTA Button & Mobile Toggle */}
+                <div className="flex items-center gap-4">
+                    <Button className="rounded-full px-6 py-2 font-semibold text-white bg-[#986a41] hover:bg-[#855a35] transition-colors shadow-md text-sm">
+                        Join Waitlist
+                    </Button>
+
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        className="md:hidden text-[#163146] hover:text-[#986a41] transition-colors"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
+
+                {/* Mobile Menu Dropdown */}
+                {isMobileMenuOpen && (
+                    <div className="absolute top-full left-0 w-full mt-4 px-6 md:hidden">
+                        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 flex flex-col gap-4">
+                            <Link
+                                to="/athletes"
+                                className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors px-4 py-2 hover:bg-gray-50 rounded-lg"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Athletes
+                            </Link>
+                            <Link
+                                to="/advisors"
+                                className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors px-4 py-2 hover:bg-gray-50 rounded-lg"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Advisors & Agents
+                            </Link>
+                        </div>
+                    </div>
+                )}
             </nav>
         </div>
     );
