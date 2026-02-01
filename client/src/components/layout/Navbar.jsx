@@ -28,7 +28,6 @@ const Navbar = () => {
                     <div className="h-6 w-px bg-gray-200 hidden md:block"></div>
                 </div>
 
-                {/* Links */}
                 <div className="hidden md:flex items-center gap-8">
                     <Link to="/athletes" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
                         Athletes
@@ -36,9 +35,6 @@ const Navbar = () => {
                     <Link to="/advisors" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
                         Advisors & Agents
                     </Link>
-                    <a href="#" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
-                        Institutions
-                    </a>
                 </div>
 
                 {/* CTA Button */}
