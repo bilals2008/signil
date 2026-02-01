@@ -1,20 +1,18 @@
 // File: client/src/App.jsx
-import HomePage from '@/pages/Home/HomePage'
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/Home/HomePage';
+import AthletesPage from './pages/Athletes/AthletesPage';
 
-const App = () => {
+function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/'>
-            <Route index element={<HomePage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/athletes" element={<AthletesPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App
