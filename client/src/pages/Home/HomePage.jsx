@@ -110,7 +110,7 @@ const HomePage = () => {
             {/* CTA Group */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-8 pt-4">
               <MagneticButton className="group bg-[#163146] hover:bg-[#0f2333] text-white px-8 lg:px-12 py-3 lg:py-6 text-sm lg:text-base font-bold rounded-full flex items-center justify-center gap-3 transition-all shadow-xl shadow-[#163146]/20 hover:shadow-2xl hover:shadow-[#163146]/30 active:scale-[0.98] w-full sm:w-auto">
-                Join Waitlist
+                Get Started
                 <motion.svg
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

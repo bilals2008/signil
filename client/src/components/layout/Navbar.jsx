@@ -57,9 +57,7 @@ const Navbar = () => {
 
                 {/* CTA Button & Mobile Toggle */}
                 <div className="flex items-center gap-4">
-                    <Button className="rounded-full px-6 py-2 font-semibold text-white bg-[#986a41] hover:bg-[#855a35] transition-colors shadow-md text-sm">
-                        Join Waitlist
-                    </Button>
+
 
                     {/* Mobile Menu Toggle */}
                     <button
