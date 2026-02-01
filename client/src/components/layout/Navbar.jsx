@@ -27,9 +27,9 @@ const Navbar = () => {
                     <Link to="/athletes" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
                         Athletes
                     </Link>
-                    <a href="#" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
+                    <Link to="/advisors" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
                         Advisors & Agents
-                    </a>
+                    </Link>
                     <a href="#" className="text-[15px] font-medium text-[#163146] hover:text-[#986a41] transition-colors">
                         Institutions
                     </a>
