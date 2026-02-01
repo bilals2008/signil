@@ -35,7 +35,7 @@ const features = [
 
 const FeaturesSection = () => {
     return (
-        <section className="w-full relative py-12 lg:py-32 px-5 sm:px-8 lg:px-12 bg-white overflow-hidden">
+        <section className="w-full relative py-8 lg:py-20 px-4 sm:px-8 lg:px-12 bg-white overflow-hidden">
             {/* Background Decorative Elements */}
             <div className="absolute inset-0 pointer-events-none -z-10">
                 <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#986a41]/5 rounded-full blur-[120px] opacity-60" />
@@ -46,16 +46,16 @@ const FeaturesSection = () => {
                 />
             </div>
 
-            <div className="max-w-7xl mx-auto flex flex-col gap-8 lg:gap-24">
+            <div className="max-w-7xl mx-auto flex flex-col gap-6 lg:gap-16">
                 {/* Header Section */}
-                <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
+                <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-4">
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#986a41]/10 border border-[#986a41]/20"
                     >
-                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#986a41]">Platform Features</span>
+                        <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#986a41]">Platform Features</span>
                     </motion.div>
 
                     <motion.h2
@@ -63,7 +63,7 @@ const FeaturesSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#163146] leading-tight"
+                        className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#163146] leading-tight"
                     >
                         Built for <span className="text-[#986a41] italic font-serif font-medium">athletes</span>. Trusted by <span className="text-[#986a41] italic font-serif font-medium">advisors</span>.
                         <br className="hidden md:block mt-2" />
@@ -71,8 +71,8 @@ const FeaturesSection = () => {
                     </motion.h2>
                 </div>
 
-                {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+                {/* Features Grid - Uniform Height & Compact */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
                     {features.map((feature, idx) => (
                         <motion.div
                             key={idx}
@@ -80,23 +80,23 @@ const FeaturesSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1, duration: 0.5 }}
-                            className="group relative flex flex-col p-5 lg:p-10 bg-white rounded-4xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500"
+                            className="group relative flex flex-col p-6 lg:p-8 bg-white rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 h-full"
                         >
                             {/* Icon Container */}
-                            <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-[#163146]/5 flex items-center justify-center mb-8 group-hover:bg-[#986a41]/10 transition-colors duration-500">
-                                <feature.icon className="w-8 h-8 text-[#163146] group-hover:text-[#986a41] transition-colors duration-500 stroke-[1.5]" />
+                            <div className="w-12 h-12 rounded-xl bg-[#163146]/5 flex items-center justify-center mb-6 group-hover:bg-[#986a41]/10 transition-colors duration-500 shrink-0">
+                                <feature.icon className="w-6 h-6 text-[#163146] group-hover:text-[#986a41] transition-colors duration-500 stroke-[1.5]" />
                             </div>
 
                             {/* Content */}
-                            <div className="flex flex-col gap-6">
-                                <h3 className="text-lg lg:text-2xl font-bold text-[#163146] leading-tight group-hover:text-[#986a41] transition-colors duration-500">
+                            <div className="flex flex-col gap-4 flex-grow">
+                                <h3 className="text-lg lg:text-xl font-bold text-[#163146] leading-tight group-hover:text-[#986a41] transition-colors duration-500">
                                     {feature.title}
                                 </h3>
 
-                                <ul className="flex flex-col gap-2 lg:gap-4">
+                                <ul className="flex flex-col gap-2.5">
                                     {feature.points.map((point, i) => (
-                                        <li key={i} className="flex gap-3 text-slate-500 text-sm lg:text-base leading-relaxed group/item">
-                                            <div className="mt-1.5 shrink-0 w-4 h-4 rounded-full bg-[#986a41]/10 flex items-center justify-center group-hover/item:bg-[#986a41]/20 transition-colors">
+                                        <li key={i} className="flex gap-3 text-slate-500 text-sm leading-relaxed group/item">
+                                            <div className="mt-1 shrink-0 w-3.5 h-3.5 rounded-full bg-[#986a41]/10 flex items-center justify-center group-hover/item:bg-[#986a41]/20 transition-colors">
                                                 <Check className="w-2.5 h-2.5 text-[#986a41]" />
                                             </div>
                                             <span className="font-light">{point}</span>

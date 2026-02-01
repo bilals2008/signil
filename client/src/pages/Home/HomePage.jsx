@@ -8,7 +8,6 @@ import ProblemSolution from '@/components/HomePage/ProblemSolution'
 import FeaturesSection from '@/components/HomePage/FeaturesSection'
 import ScoutSection from '@/components/HomePage/ScoutSection'
 import FoundersNote from '@/components/HomePage/FoundersNote'
-import FinalCTA from '@/components/HomePage/FinalCTA'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const words = ["In", "Athletes", "Agents", "Advisors", "Institutions"];
@@ -34,13 +33,13 @@ const HomePage = () => {
         {/* Premium Background: Radial Gradient + Dot Grid */}
         <div className="absolute inset-0 bg-[#fdfdfd] overflow-hidden -z-10">
           <div
-            className="absolute inset-0 opacity-[0.4]"
+            className="absolute inset-0 opacity-[0.4] max-sm:hidden"
             style={{
               background: 'radial-gradient(circle at 70% 30%, #986a4108 0%, transparent 70%), radial-gradient(circle at 20% 80%, #16314605 0%, transparent 60%)'
             }}
           />
           <div
-            className="absolute inset-0 pointer-events-none opacity-[0.035]"
+            className="absolute inset-0 pointer-events-none opacity-[0.035] max-sm:hidden"
             style={{
               backgroundImage: 'radial-gradient(#163146 1.2px, transparent 1.2px)',
               backgroundSize: '32px 32px'
@@ -110,7 +109,7 @@ const HomePage = () => {
 
             {/* CTA Group */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-8 pt-4">
-              <MagneticButton className="group bg-[#163146] hover:bg-[#0f2333] text-white px-8 lg:px-12 py-3 lg:py-6 text-sm lg:text-base font-bold rounded-full flex items-center justify-center gap-3 transition-all shadow-xl shadow-[#163146]/20 hover:shadow-2xl hover:shadow-[#163146]/30 active:scale-95 w-full sm:w-auto">
+              <MagneticButton className="group bg-[#163146] hover:bg-[#0f2333] text-white px-8 lg:px-12 py-3 lg:py-6 text-sm lg:text-base font-bold rounded-full flex items-center justify-center gap-3 transition-all shadow-xl shadow-[#163146]/20 hover:shadow-2xl hover:shadow-[#163146]/30 active:scale-[0.98] w-full sm:w-auto">
                 Join Waitlist
                 <motion.svg
                   animate={{ x: [0, 5, 0] }}
@@ -122,7 +121,7 @@ const HomePage = () => {
                 </motion.svg>
               </MagneticButton>
 
-              <button className="group text-[#163146] font-bold text-sm lg:text-base flex items-center justify-center gap-2 px-4 py-2 rounded-full hover:bg-[#163146]/5 transition-all duration-300 w-full sm:w-auto">
+              <button className="group text-[#163146] font-bold text-sm lg:text-base flex items-center justify-center gap-2 px-4 py-2 rounded-full hover:bg-[#163146]/5 active:scale-[0.98] transition-all duration-300 w-full sm:w-auto">
                 How it Works
                 <div className="w-8 h-8 rounded-full bg-[#986a41]/10 flex items-center justify-center group-hover:bg-[#986a41]/20 transition-colors">
                   <svg className="w-4 h-4 text-[#986a41] group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -181,7 +180,7 @@ const HomePage = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6 }}
                 whileHover={{ y: -2, scale: 1.02 }}
-                className="absolute top-12 -right-6 lg:-right-12 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl p-4 lg:p-5 border border-white/50 flex items-center gap-4 z-20 cursor-default"
+                className="absolute top-12 -right-6 lg:-right-12 bg-white/95 max-sm:bg-white backdrop-blur-md max-sm:backdrop-blur-none rounded-2xl shadow-xl max-sm:shadow-lg p-4 lg:p-5 border border-white/50 flex items-center gap-4 z-20 cursor-default"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#986a41]/10 flex items-center justify-center">
                   <BrainCircuit className="w-6 h-6 text-[#986a41]" />
@@ -219,8 +218,8 @@ const HomePage = () => {
               </motion.div>
             </div>
 
-            {/* Decorative background framing */}
-            <div className="absolute -inset-10 lg:-inset-20 border-[1.5px] border-[#986a41]/10 rounded-[5rem] -z-20 animate-spin-slow opacity-30 lg:opacity-60"
+            {/* Decorative background framing - Hidden on mobile */}
+            <div className="absolute -inset-10 lg:-inset-20 border-[1.5px] border-[#986a41]/10 rounded-[5rem] -z-20 animate-spin-slow opacity-30 lg:opacity-60 max-sm:hidden"
               style={{ animationDuration: '40s' }} />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-radial from-[#986a41]/5 to-transparent -z-20 blur-3xl opacity-50" />
           </motion.div>
@@ -244,7 +243,6 @@ const HomePage = () => {
       <ScoutSection />
 
       <FoundersNote />
-      <FinalCTA />
 
       <Footer />
     </div >

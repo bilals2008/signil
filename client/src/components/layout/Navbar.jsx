@@ -10,10 +10,26 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
+            const isScrolled = window.scrollY > 20;
+            setScrolled(isScrolled);
         };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+
+        // Simple throttle to run at most every 50ms
+        let timeoutId = null;
+        const throttledScroll = () => {
+            if (!timeoutId) {
+                timeoutId = setTimeout(() => {
+                    handleScroll();
+                    timeoutId = null;
+                }, 50);
+            }
+        };
+
+        window.addEventListener('scroll', throttledScroll);
+        return () => {
+            window.removeEventListener('scroll', throttledScroll);
+            if (timeoutId) clearTimeout(timeoutId);
+        };
     }, []);
 
     return (

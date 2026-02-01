@@ -20,15 +20,6 @@ const scoutFeatures = [
     }
 ];
 
-// Pre-generate stable particles for background to satisfy purity rules
-const SCOUT_PARTICLES = [...Array(8)].map((_, i) => ({
-    id: i,
-    top: `${(i * 13) % 100}%`, // Deterministic "random" positions
-    left: `${(i * 17) % 100}%`,
-    duration: 15 + (i % 10),
-    delay: i % 5
-}));
-
 const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -61,7 +52,6 @@ const ScoutSection = () => {
     };
 
     useEffect(() => {
-        // Only scroll if it's NOT the first mount
         if (messages.length > 1 || isTyping) {
             scrollToBottom();
         }
@@ -81,7 +71,6 @@ const ScoutSection = () => {
         setInputValue('');
         setIsTyping(true);
 
-        // Simulated Auto-reply
         setTimeout(() => {
             const scoutReply = {
                 id: Date.now() + 1,
@@ -94,10 +83,10 @@ const ScoutSection = () => {
     };
 
     return (
-        <section className="relative w-full bg-[#10202F] py-12 lg:py-40 px-5 sm:px-8 lg:px-12 flex justify-center text-[#faf7f2] overflow-hidden">
+        <section className="relative w-full bg-[#10202F] py-10 lg:py-24 px-4 sm:px-8 lg:px-12 flex justify-center text-[#faf7f2] overflow-hidden">
 
             {/* Premium Background Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none max-sm:hidden">
                 <div
                     className="absolute top-0 right-0 w-[600px] h-[600px] blur-[120px] rounded-full opacity-[0.15]"
                     style={{ background: 'radial-gradient(circle, #986a41 0%, transparent 70%)' }}
@@ -106,8 +95,6 @@ const ScoutSection = () => {
                     className="absolute bottom-0 left-0 w-[700px] h-[700px] blur-[150px] rounded-full opacity-[0.05]"
                     style={{ background: 'radial-gradient(circle, #163146 0%, transparent 70%)' }}
                 />
-
-                {/* Subtle Grid Overlay */}
                 <div
                     className="absolute inset-0 opacity-[0.03]"
                     style={{
@@ -115,11 +102,9 @@ const ScoutSection = () => {
                         backgroundSize: '48px 48px'
                     }}
                 />
-
-                {/* Floating Ambient Particles Removed for performance */}
             </div>
 
-            <div className="max-w-7xl w-full flex flex-col gap-10 lg:gap-24 relative z-10">
+            <div className="max-w-7xl w-full flex flex-col gap-8 lg:gap-16 relative z-10">
 
                 {/* Heading Area */}
                 <motion.div
@@ -127,35 +112,35 @@ const ScoutSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-center space-y-8"
+                    className="text-center space-y-6"
                 >
-                    <div className="flex flex-col gap-8 items-center"> {/* Added items-center for centering */}
+                    <div className="flex flex-col gap-6 items-center">
                         <motion.div
                             variants={itemVariants}
-                            className="inline-flex items-center gap-3 bg-[#986a41]/10 border border-[#986a41]/20 px-6 py-2.5 rounded-full w-fit"
+                            className="inline-flex items-center gap-3 bg-[#986a41]/10 border border-[#986a41]/20 px-5 py-2 rounded-full w-fit"
                         >
-                            <div className="w-2 h-2 rounded-full bg-[#986a41] animate-pulse" />
-                            <span className="text-[#986a41] text-xs font-black uppercase tracking-[0.2em]">Signil's AI Assistant</span>
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#986a41] animate-pulse" />
+                            <span className="text-[#986a41] text-[10px] font-black uppercase tracking-[0.2em]">Signil's AI Assistant</span>
                         </motion.div>
 
                         <motion.h2
                             variants={itemVariants}
-                            className="text-2xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter leading-[0.9] text-white" // Added text-white
+                            className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter leading-[0.95] text-white"
                         >
                             Meet <span className="text-[#986a41] italic font-serif font-medium">Scout</span>. <br />
                             Your bridge to the right team.
                         </motion.h2>
                     </div>
-                    <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+                    <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
                         Scout helps identify your specific needs and connects you with the perfect advisors for your NIL journey.
                     </p>
                 </motion.div>
 
-                {/* Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center">
+                {/* Content Grid - Tighter Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-center">
 
-                    {/* Left: Feature Cards */}
-                    <div className="flex flex-col gap-10">
+                    {/* Left: Feature Cards - More Compact */}
+                    <div className="flex flex-col gap-6">
                         {scoutFeatures.map((feature, idx) => (
                             <motion.div
                                 key={idx}
@@ -163,29 +148,24 @@ const ScoutSection = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                                className="group relative p-5 lg:p-10 rounded-[2.5rem] bg-white/2 border border-white/5 hover:bg-white/5 hover:border-[#986a41]/30 transition-all duration-500 flex flex-col sm:flex-row gap-4 lg:gap-8 shadow-2xl"
+                                className="group relative p-6 rounded-[2rem] bg-white/2 border border-white/5 hover:bg-white/5 hover:border-[#986a41]/30 transition-all duration-500 flex flex-col sm:flex-row gap-4 lg:gap-6 shadow-xl"
                             >
-                                <div className="shrink-0 w-16 h-16 rounded-2xl bg-[#10202F] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl">
-                                    <feature.icon className="w-8 h-8 text-[#986a41]" />
+                                <div className="shrink-0 w-12 h-12 rounded-xl bg-[#10202F] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
+                                    <feature.icon className="w-6 h-6 text-[#986a41]" />
                                 </div>
-                                <div className="space-y-4">
-                                    <h3 className="text-3xl font-bold text-white tracking-tight group-hover:text-[#986a41] transition-colors duration-500">
+                                <div className="space-y-2">
+                                    <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-[#986a41] transition-colors duration-500">
                                         {feature.title}
                                     </h3>
-                                    <p className="text-gray-400 text-lg leading-relaxed font-light">
+                                    <p className="text-gray-400 text-sm lg:text-base leading-relaxed font-light">
                                         {feature.description}
                                     </p>
-                                </div>
-
-                                {/* Bottom Corner Accent */}
-                                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                                    <div className="w-2 h-2 rounded-full bg-[#986a41]/50 shadow-[0_0_15px_#986a41]" />
                                 </div>
                             </motion.div>
                         ))}
                     </div>
 
-                    {/* Right: Scout Chat Mockup */}
+                    {/* Right: User's Mockup Integration - Bento Style */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.98 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -194,34 +174,34 @@ const ScoutSection = () => {
                         className="relative"
                     >
                         {/* Interactive Glow */}
-                        <div className="absolute -inset-10 bg-[#986a41] blur-[100px] rounded-[4rem] -z-10 opacity-[0.05]" />
+                        <div className="absolute -inset-10 bg-[#986a41] blur-[80px] rounded-[4rem] -z-10 opacity-[0.05]" />
 
-                        <div className="bg-[#faf7f2] rounded-[3rem] p-3 shadow-[0_50px_120px_-20px_rgba(0,0,0,0.6)] border border-white/10 overflow-hidden font-sans">
+                        <div className="bg-[#faf7f2] rounded-[2.5rem] p-2 lg:p-3 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] border border-white/10 overflow-hidden font-sans max-w-lg mx-auto lg:max-w-none">
                             {/* Window Header */}
-                            <div className="bg-[#f4f1ea] px-8 py-6 rounded-t-[2.5rem] border-b border-gray-200/80 flex items-center justify-between">
-                                <div className="flex items-center gap-4">
+                            <div className="bg-[#f4f1ea] px-6 py-4 rounded-t-[2rem] border-b border-gray-200/80 flex items-center justify-between">
+                                <div className="flex items-center gap-3">
                                     <div className="relative">
-                                        <div className="w-12 h-12 rounded-2xl bg-[#1a2e41] flex items-center justify-center text-[#986a41] shadow-2xl">
-                                            <MessageSquare className="w-6 h-6" />
+                                        <div className="w-10 h-10 rounded-xl bg-[#1a2e41] flex items-center justify-center text-[#986a41] shadow-2xl">
+                                            <MessageSquare className="w-5 h-5" />
                                         </div>
-                                        <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-green-500 border-[3px] border-[#f4f1ea] shadow-lg animate-pulse" />
+                                        <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-green-500 border-[3px] border-[#f4f1ea] shadow-lg animate-pulse" />
                                     </div>
                                     <div>
-                                        <span className="text-[#1a2e41] font-black text-base block tracking-tight">Scout AI Intelligence</span>
-                                        <span className="text-green-600 text-[11px] font-black uppercase tracking-[0.1em]">Active Protocol</span>
+                                        <span className="text-[#1a2e41] font-black text-sm block tracking-tight">Scout AI</span>
+                                        <span className="text-green-600 text-[9px] font-black uppercase tracking-[0.1em]">Active</span>
                                     </div>
                                 </div>
-                                <div className="flex gap-2">
+                                <div className="flex gap-1.5">
                                     {[1, 2, 3].map(i => (
-                                        <div key={i} className="w-2.5 h-2.5 rounded-full bg-gray-300/60" />
+                                        <div key={i} className="w-2 h-2 rounded-full bg-gray-300/60" />
                                     ))}
                                 </div>
                             </div>
 
-                            {/* Chat Body */}
+                            {/* Chat Body - Scaled Height */}
                             <div
                                 ref={chatContainerRef}
-                                className="p-4 md:p-10 space-y-8 h-[400px] lg:h-[520px] overflow-y-auto flex flex-col bg-[#faf7f2] rounded-b-[2.5rem] scrollbar-hide"
+                                className="p-4 md:p-6 space-y-6 h-[350px] lg:h-[450px] overflow-y-auto flex flex-col bg-[#faf7f2] rounded-b-[2rem] scrollbar-hide"
                             >
                                 <AnimatePresence initial={false}>
                                     {messages.map((msg) => (
@@ -230,18 +210,15 @@ const ScoutSection = () => {
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.3 }}
-                                            className={`flex gap-5 items-start ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
+                                            className={`flex gap-3 items-start ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
                                         >
-                                            <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-white font-black shrink-0 text-[11px] shadow-2xl ${msg.role === 'scout' ? 'bg-[#1a2e41]' : 'bg-[#986a41]'}`}>
-                                                {msg.role === 'scout' ? 'AI' : <User className="w-5 h-5" />}
+                                            <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-white font-black shrink-0 text-[10px] shadow-2xl ${msg.role === 'scout' ? 'bg-[#1a2e41]' : 'bg-[#986a41]'}`}>
+                                                {msg.role === 'scout' ? 'AI' : <User className="w-4 h-4" />}
                                             </div>
-                                            <div className={`p-3 md:p-7 rounded-[2.5rem] shadow-[0_15px_45px_-10px_rgba(0,0,0,0.08)] border text-[16px] leading-[1.6] relative max-w-[88%] transition-all duration-300 ${msg.role === 'scout'
+                                            <div className={`p-4 rounded-[1.5rem] shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] border text-[14px] leading-[1.5] relative max-w-[85%] transition-all duration-300 ${msg.role === 'scout'
                                                 ? 'bg-white rounded-tl-none border-gray-100 text-[#1a2e41]'
                                                 : 'bg-[#1a2e41] rounded-tr-none border-white/5 text-white'
                                                 }`}>
-                                                <span className={`font-black text-[10px] block mb-3 uppercase tracking-[0.15em] ${msg.role === 'scout' ? 'text-[#986a41]' : 'text-[#986a41]'}`}>
-                                                    {msg.role === 'scout' ? 'Scout Intelligence' : 'Authenticated User'}
-                                                </span>
                                                 {msg.content}
                                             </div>
                                         </motion.div>
@@ -252,12 +229,12 @@ const ScoutSection = () => {
                                     <motion.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        className="flex gap-5 items-start"
+                                        className="flex gap-3 items-start"
                                     >
-                                        <div className="w-11 h-11 rounded-2xl bg-[#1a2e41] flex items-center justify-center text-white font-black shrink-0 text-[11px] shadow-2xl">
+                                        <div className="w-8 h-8 rounded-xl bg-[#1a2e41] flex items-center justify-center text-white font-black shrink-0 text-[10px] shadow-2xl">
                                             AI
                                         </div>
-                                        <div className="bg-white p-6 rounded-[2.5rem] rounded-tl-none border border-gray-100 flex gap-2">
+                                        <div className="bg-white p-4 rounded-[1.5rem] rounded-tl-none border border-gray-100 flex gap-1.5">
                                             {[1, 2, 3].map(i => (
                                                 <motion.div
                                                     key={i}
@@ -265,7 +242,7 @@ const ScoutSection = () => {
                                                         opacity: [0.3, 1, 0.3]
                                                     }}
                                                     transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.2 }}
-                                                    className="w-2 h-2 rounded-full bg-[#1a2e41]/40"
+                                                    className="w-1.5 h-1.5 rounded-full bg-[#1a2e41]/40"
                                                 />
                                             ))}
                                         </div>
@@ -274,28 +251,26 @@ const ScoutSection = () => {
                             </div>
 
                             {/* Chat Footer/Input */}
-                            <div className="p-8 border-t border-gray-100 bg-white/50 backdrop-blur-md">
+                            <div className="p-4 border-t border-gray-100 bg-white/50 backdrop-blur-md max-sm:backdrop-blur-none max-sm:bg-white rounded-b-[2rem]">
                                 <form onSubmit={handleSendMessage} className="relative group">
                                     <input
                                         type="text"
                                         value={inputValue}
                                         onChange={(e) => setInputValue(e.target.value)}
-                                        placeholder="Ask Scout about NIL connections..."
-                                        className="w-full bg-white border border-gray-200 rounded-[2rem] px-8 py-6 pr-16 text-base focus:outline-none focus:ring-8 focus:ring-[#986a41]/10 focus:border-[#986a41]/40 transition-all shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] text-[#1a2e41] placeholder:text-gray-400 font-medium"
+                                        placeholder="Ask Scout..."
+                                        className="w-full bg-white border border-gray-200 rounded-full px-6 py-4 pr-14 text-sm focus:outline-none focus:ring-4 focus:ring-[#986a41]/10 focus:border-[#986a41]/40 transition-all shadow-sm text-[#1a2e41] placeholder:text-gray-400 font-medium"
                                     />
                                     <motion.button
                                         whileHover={{ scale: 1.1, rotate: -10 }}
                                         whileTap={{ scale: 0.9 }}
                                         type="submit"
-                                        className="absolute right-4 top-1/2 -translate-y-1/2 p-3.5 bg-[#1a2e41] hover:bg-[#986a41] text-white rounded-2xl shadow-2xl transition-all duration-300"
+                                        className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-[#1a2e41] hover:bg-[#986a41] text-white rounded-full shadow-lg transition-all duration-300"
                                     >
-                                        <CornerDownLeft className="w-5 h-5" />
+                                        <CornerDownLeft className="w-4 h-4" />
                                     </motion.button>
                                 </form>
                             </div>
                         </div>
-
-                        {/* Floating elements for extra depth - Removed for performance */}
                     </motion.div>
 
                 </div>
