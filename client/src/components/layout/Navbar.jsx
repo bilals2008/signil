@@ -18,9 +18,15 @@ const Navbar = () => {
         <div className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center transition-all duration-300 ${scrolled ? 'top-4' : 'top-6'}`}>
             <nav className="bg-white rounded-full px-10 py-4 shadow-md flex items-center justify-between gap-12 transition-all duration-300">
                 {/* Logo */}
-                <a href="/" className="text-2xl font-serif font-bold text-[#163146] tracking-tight hover:opacity-90 transition-opacity">
-                    signil
-                </a>
+                <div className="flex items-center gap-6">
+                    <a href="/" className="text-2xl font-serif font-bold tracking-tight hover:opacity-90 transition-opacity flex items-center">
+                        <span className="text-[#163146]">sign</span>
+                        <span className="text-[#986a41]">il</span>
+                    </a>
+
+                    {/* Vertical Separator */}
+                    <div className="h-6 w-px bg-gray-200 hidden md:block"></div>
+                </div>
 
                 {/* Links */}
                 <div className="hidden md:flex items-center gap-8">
