@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const FoundersNote = () => {
     return (
-        <section className="relative w-full bg-[#faf7f2] py-24 lg:py-40 px-5 sm:px-8 lg:px-12 flex flex-col items-center overflow-hidden">
+        <section className="relative w-full bg-[#faf7f2] py-12 lg:py-40 px-5 sm:px-8 lg:px-12 flex flex-col items-center overflow-hidden">
 
             {/* Subtle Premium Background Pattern */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none -z-10"
@@ -32,7 +32,7 @@ const FoundersNote = () => {
                 {/* Decoration: Subtle Glow */}
                 <div className="absolute -inset-20 bg-[#986a41]/5 blur-[120px] rounded-full -z-10" />
 
-                <div className="bg-white/70 backdrop-blur-md border border-[#986a41]/10 rounded-[3rem] p-8 md:p-16 lg:p-24 shadow-[0_40px_100px_-30px_rgba(152,106,65,0.12)] flex flex-col items-center gap-16 text-center relative overflow-hidden group">
+                <div className="bg-white/70 backdrop-blur-md border border-[#986a41]/10 rounded-[3rem] p-5 md:p-16 lg:p-24 shadow-[0_40px_100px_-30px_rgba(152,106,65,0.12)] flex flex-col items-center gap-10 md:gap-16 text-center relative overflow-hidden group">
 
                     {/* Top Accent Line with animation */}
                     <motion.div
@@ -55,13 +55,13 @@ const FoundersNote = () => {
                     </motion.div>
 
                     {/* Heading */}
-                    <h2 className="text-[#163146] text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1] max-w-2xl">
+                    <h2 className="text-[#163146] text-2xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1] max-w-2xl">
                         From Confusion to Confidence <br />
                         <span className="text-[#986a41] font-serif italic font-medium">One Connection</span> at a Time
                     </h2>
 
                     {/* Body Text */}
-                    <div className="flex flex-col gap-10 text-[#163146]/80 text-lg md:text-2xl font-light leading-relaxed max-w-3xl">
+                    <div className="flex flex-col gap-6 md:gap-10 text-[#163146]/80 text-sm md:text-2xl font-light leading-relaxed max-w-3xl">
                         <p className="relative">
                             We're Ryan and Saurav, two recent graduates who saw a system full of promise, but burdened with confusion and missed opportunities. We spoke with countless athletes navigating overwhelming contracts and confusing NIL deals, and advisors eager to help but struggling to reach the people who needed them most.
                         </p>
@@ -71,7 +71,7 @@ const FoundersNote = () => {
                         <motion.p
                             initial={{ opacity: 0.5 }}
                             whileInView={{ opacity: 1 }}
-                            className="font-bold text-[#163146] italic bg-[#986a41]/5 p-8 rounded-[2rem] border border-[#986a41]/10"
+                            className="font-bold text-[#163146] italic bg-[#986a41]/5 p-5 md:p-8 rounded-[2rem] border border-[#986a41]/10"
                         >
                             Signil is the platform we wish existed for our friends and every athlete stepping into the future of NIL, because everyone deserves a team they can trust.
                         </motion.p>

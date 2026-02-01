@@ -5,7 +5,7 @@ import { AlertCircle, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const ProblemSolution = () => {
     return (
-        <section className="w-full relative py-20 lg:py-36 px-5 sm:px-8 lg:px-12 bg-[#fdfdfd] overflow-hidden">
+        <section className="w-full relative py-10 lg:py-36 px-5 sm:px-8 lg:px-12 bg-[#fdfdfd] overflow-hidden">
             {/* Background Decorative Elements */}
             <div className="absolute inset-0 pointer-events-none -z-10">
                 <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-[#986a41]/5 rounded-full blur-[120px] opacity-20" />
@@ -26,7 +26,7 @@ const ProblemSolution = () => {
                 ))}
             </div>
 
-            <div className="max-w-7xl mx-auto flex flex-col gap-12 lg:gap-20">
+            <div className="max-w-7xl mx-auto flex flex-col gap-6 lg:gap-20">
                 {/* Header Section */}
                 <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
                     <motion.div
@@ -49,7 +49,7 @@ const ProblemSolution = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-[-0.035em] text-[#163146] leading-[1.05]"
+                        className="text-2xl md:text-5xl lg:text-7xl font-extrabold tracking-[-0.035em] text-[#163146] leading-[1.05]"
                     >
                         Bridging the <span className="text-[#986a41] italic font-serif font-medium tracking-normal">NIL Gap</span>
                     </motion.h2>
@@ -69,7 +69,7 @@ const ProblemSolution = () => {
                         {/* Elite Border Effect */}
                         <div className="absolute -inset-[1px] bg-linear-to-b from-slate-200/50 to-transparent rounded-4xl -z-10 opacity-50" />
 
-                        <div className="h-full bg-linear-to-b from-white via-white to-slate-50/20 backdrop-blur-3xl p-10 lg:p-12 rounded-4xl border border-white shadow-[0_20px_50px_-20px_rgba(0,0,0,0.06),inset_0_0_20px_rgba(255,255,255,0.5)] flex flex-col gap-10 relative overflow-hidden group">
+                        <div className="h-full bg-linear-to-b from-white via-white to-slate-50/20 backdrop-blur-3xl p-5 lg:p-12 rounded-4xl border border-white shadow-[0_20px_50px_-20px_rgba(0,0,0,0.06),inset_0_0_20px_rgba(255,255,255,0.5)] flex flex-col gap-5 lg:gap-10 relative overflow-hidden group">
                             {/* Micro-dot grid */}
                             <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#163146 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
@@ -84,11 +84,11 @@ const ProblemSolution = () => {
                             </div>
 
                             <div className="space-y-6 relative z-10">
-                                <h3 className="text-3xl lg:text-[2.2rem] font-bold text-[#163146] leading-[1.1] tracking-tight">
+                                <h3 className="text-xl lg:text-[2.2rem] font-bold text-[#163146] leading-[1.1] tracking-tight">
                                     NIL athletes have the spotlight, <br />
                                     <span className="text-slate-300 font-medium italic">but not the support.</span>
                                 </h3>
-                                <p className="text-slate-500 text-lg leading-relaxed font-light tracking-wide max-w-sm">
+                                <p className="text-slate-500 text-sm lg:text-lg leading-relaxed font-light tracking-wide max-w-sm">
                                     In a high-stakes, fast-changing era, most college athletes are navigating contracts, branding, and financial decisions without trusted guidance.
                                 </p>
                             </div>
@@ -114,7 +114,7 @@ const ProblemSolution = () => {
                         {/* Elite Border Highlight */}
                         <div className="absolute -inset-[1px] bg-linear-to-b from-[#986a41]/30 to-transparent rounded-4xl -z-10" />
 
-                        <div className="h-full bg-linear-to-br from-[#163146] via-[#1c3e5a] to-[#0f2333] p-10 lg:p-12 rounded-4xl shadow-[0_40px_80px_-20px_rgba(22,49,70,0.3),inset_0_1px_1px_rgba(255,255,255,0.1)] flex flex-col gap-10 overflow-hidden relative border border-white/5 group">
+                        <div className="h-full bg-linear-to-br from-[#163146] via-[#1c3e5a] to-[#0f2333] p-5 lg:p-12 rounded-4xl shadow-[0_40px_80px_-20px_rgba(22,49,70,0.3),inset_0_1px_1px_rgba(255,255,255,0.1)] flex flex-col gap-5 lg:gap-10 overflow-hidden relative border border-white/5 group">
                             {/* Elite Glow Pattern */}
                             <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-[#986a41]/10 rounded-full blur-[120px] pointer-events-none group-hover:bg-[#986a41]/20 transition-colors duration-1000" />
                             <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -130,11 +130,11 @@ const ProblemSolution = () => {
                             </div>
 
                             <div className="space-y-6 relative z-10">
-                                <h3 className="text-3xl lg:text-[2.2rem] font-bold text-white leading-[1.1] tracking-tight">
+                                <h3 className="text-xl lg:text-[2.2rem] font-bold text-white leading-[1.1] tracking-tight">
                                     Signil simplifies the journey, <br />
                                     <span className="text-[#986a41] italic font-serif">from start to finish.</span>
                                 </h3>
-                                <p className="text-white/70 text-lg leading-relaxed font-light tracking-wide max-w-xl">
+                                <p className="text-white/70 text-sm lg:text-lg leading-relaxed font-light tracking-wide max-w-xl">
                                     We provide a comprehensive platform to manage your NIL deals, legal reviews, and financial health—so you can focus on the game.
                                 </p>
                             </div>

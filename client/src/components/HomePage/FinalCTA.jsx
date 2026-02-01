@@ -14,7 +14,7 @@ const STARDUST = [...Array(12)].map((_, i) => ({
 
 const FinalCTA = () => {
     return (
-        <section className="relative w-full bg-[#163146] py-32 lg:py-48 px-5 sm:px-8 lg:px-12 flex flex-col items-center text-center overflow-hidden">
+        <section className="relative w-full bg-[#163146] py-16 lg:py-48 px-5 sm:px-8 lg:px-12 flex flex-col items-center text-center overflow-hidden">
 
             {/* Premium Dark Gradient Background */}
             <div className="absolute inset-0 bg-linear-to-b from-[#163146] to-[#0a1824] -z-10" />
@@ -85,7 +85,7 @@ const FinalCTA = () => {
                 />
 
                 {/* Main Heading */}
-                <h2 className="text-3xl md:text-4xl lg:text-5xl text-white font-black tracking-tighter leading-tight max-w-4xl">
+                <h2 className="text-xl md:text-3xl lg:text-5xl text-white font-black tracking-tighter leading-tight max-w-4xl">
                     Whether you're an athlete looking for guidance or an advisor ready to share your expertise, <span className="text-[#986a41] font-serif italic font-medium">Signil</span> is building the platform that will transform NIL opportunities.
                 </h2>
 
@@ -95,7 +95,7 @@ const FinalCTA = () => {
                         {/* Magnetic Glow Effect */}
                         <div className="absolute -inset-1 border border-[#986a41]/50 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                        <MagneticButton className="group bg-[#986a41] hover:bg-[#855c3a] text-white px-8 md:px-11 py-3.5 md:py-4.5 text-base md:text-lg font-black rounded-full transition-all shadow-2xl shadow-[#986a41]/30 hover:shadow-[#986a41]/50 flex items-center gap-4 active:scale-95 border-b-4 border-[#7a5435]">
+                        <MagneticButton className="group bg-[#986a41] hover:bg-[#855c3a] text-white px-8 md:px-11 py-3 md:py-4.5 text-base md:text-lg font-black rounded-full transition-all shadow-2xl shadow-[#986a41]/30 hover:shadow-[#986a41]/50 flex items-center justify-center gap-4 active:scale-95 border-b-4 border-[#7a5435] w-full md:w-auto">
                             Join the Limited Waitlist
                             <motion.svg
                                 animate={{ x: [0, 5, 0] }}

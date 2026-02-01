@@ -94,7 +94,7 @@ const ScoutSection = () => {
     };
 
     return (
-        <section className="relative w-full bg-[#10202F] py-24 lg:py-40 px-5 sm:px-8 lg:px-12 flex justify-center text-[#faf7f2] overflow-hidden">
+        <section className="relative w-full bg-[#10202F] py-12 lg:py-40 px-5 sm:px-8 lg:px-12 flex justify-center text-[#faf7f2] overflow-hidden">
 
             {/* Premium Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -145,7 +145,7 @@ const ScoutSection = () => {
                 ))}
             </div>
 
-            <div className="max-w-7xl w-full flex flex-col gap-24 relative z-10">
+            <div className="max-w-7xl w-full flex flex-col gap-10 lg:gap-24 relative z-10">
 
                 {/* Heading Area */}
                 <motion.div
@@ -166,7 +166,7 @@ const ScoutSection = () => {
 
                         <motion.h2
                             variants={itemVariants}
-                            className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter leading-[0.9] text-white" // Added text-white
+                            className="text-2xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter leading-[0.9] text-white" // Added text-white
                         >
                             Meet <span className="text-[#986a41] italic font-serif font-medium">Scout</span>. <br />
                             Your bridge to the right team.
@@ -189,7 +189,7 @@ const ScoutSection = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8, delay: idx * 0.2, ease: "easeOut" }}
-                                className="group relative p-10 rounded-[2.5rem] bg-white/2 border border-white/5 hover:bg-white/5 hover:border-[#986a41]/30 transition-all duration-700 flex flex-col sm:flex-row gap-8 shadow-2xl"
+                                className="group relative p-5 lg:p-10 rounded-[2.5rem] bg-white/2 border border-white/5 hover:bg-white/5 hover:border-[#986a41]/30 transition-all duration-700 flex flex-col sm:flex-row gap-4 lg:gap-8 shadow-2xl"
                             >
                                 <div className="shrink-0 w-16 h-16 rounded-2xl bg-[#10202F] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl">
                                     <feature.icon className="w-8 h-8 text-[#986a41]" />
@@ -251,7 +251,7 @@ const ScoutSection = () => {
                             {/* Chat Body */}
                             <div
                                 ref={chatContainerRef}
-                                className="p-8 md:p-10 space-y-8 h-[520px] overflow-y-auto flex flex-col bg-[#faf7f2] rounded-b-[2.5rem] scrollbar-hide"
+                                className="p-4 md:p-10 space-y-8 h-[400px] lg:h-[520px] overflow-y-auto flex flex-col bg-[#faf7f2] rounded-b-[2.5rem] scrollbar-hide"
                             >
                                 <AnimatePresence initial={false}>
                                     {messages.map((msg) => (
@@ -265,7 +265,7 @@ const ScoutSection = () => {
                                             <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-white font-black shrink-0 text-[11px] shadow-2xl ${msg.role === 'scout' ? 'bg-[#1a2e41]' : 'bg-[#986a41]'}`}>
                                                 {msg.role === 'scout' ? 'AI' : <User className="w-5 h-5" />}
                                             </div>
-                                            <div className={`p-6 md:p-7 rounded-[2.5rem] shadow-[0_15px_45px_-10px_rgba(0,0,0,0.08)] border text-[16px] leading-[1.6] relative max-w-[88%] transition-all duration-300 ${msg.role === 'scout'
+                                            <div className={`p-3 md:p-7 rounded-[2.5rem] shadow-[0_15px_45px_-10px_rgba(0,0,0,0.08)] border text-[16px] leading-[1.6] relative max-w-[88%] transition-all duration-300 ${msg.role === 'scout'
                                                 ? 'bg-white rounded-tl-none border-gray-100 text-[#1a2e41]'
                                                 : 'bg-[#1a2e41] rounded-tr-none border-white/5 text-white'
                                                 }`}>

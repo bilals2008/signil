@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
     return (
-        <footer className="w-full bg-[#fdfdfd] py-8 px-4 sm:px-6 lg:px-8 flex justify-center">
-            <div className="w-full max-w-[1400px] bg-[#163146] text-[#faf7f2] rounded-[2.5rem] py-16 px-8 md:px-16 flex flex-col gap-12 relative overflow-hidden">
+        <footer className="w-full bg-[#fdfdfd] py-4 sm:py-8 px-4 sm:px-6 lg:px-8 flex justify-center">
+            <div className="w-full max-w-[1400px] bg-[#163146] text-[#faf7f2] rounded-[1.5rem] sm:rounded-[2.5rem] py-8 md:py-16 px-5 md:px-16 flex flex-col gap-8 md:gap-12 relative overflow-hidden">
 
                 {/* Top Section */}
                 <div className="flex flex-col md:flex-row justify-between items-start gap-10">
@@ -15,7 +15,7 @@ const Footer = () => {
                         <div className="bg-white text-[#163146] px-4 py-1 rounded-md font-serif font-bold text-2xl w-fit">
                             signil
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-serif leading-tight">
+                        <h2 className="text-3xl md:text-5xl font-serif leading-tight">
                             Ready to <br /> get started?
                         </h2>
                     </div>
@@ -30,8 +30,8 @@ const Footer = () => {
                 </div>
 
                 {/* Middle Section: CTA & Socials */}
-                <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-10">
-                    <Button className="bg-[#986a41] hover:bg-[#855a35] text-white rounded-full px-8 py-6 text-lg font-semibold flex items-center gap-2 group transition-all">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-10">
+                    <Button className="bg-[#986a41] hover:bg-[#855a35] text-white rounded-full px-8 py-6 text-lg font-semibold flex items-center justify-center gap-2 group transition-all w-full md:w-auto">
                         Join the Waitlist
                         <span className="bg-white/20 rounded-full p-1 group-hover:bg-white/30 transition-colors">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">

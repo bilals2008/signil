@@ -29,7 +29,7 @@ const HomePage = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] lg:min-h-screen flex flex-col justify-center px-5 sm:px-8 lg:px-12 overflow-hidden pt-12 lg:pt-24 pb-8 lg:pb-16 bg-[#fdfdfd]">
+      <section className="relative min-h-[85vh] lg:min-h-screen flex flex-col justify-center px-5 sm:px-8 lg:px-12 overflow-hidden pt-6 lg:pt-24 pb-6 lg:pb-16 bg-[#fdfdfd]">
 
         {/* Premium Background: Radial Gradient + Dot Grid */}
         <div className="absolute inset-0 bg-[#fdfdfd] overflow-hidden -z-10">
@@ -65,7 +65,7 @@ const HomePage = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col space-y-6 lg:space-y-10 mt-6 lg:mt-0 max-w-2xl lg:max-w-none"
+            className="flex flex-col space-y-4 lg:space-y-10 mt-6 lg:mt-0 max-w-2xl lg:max-w-none"
           >
             {/* Top Tagline */}
             <div className="flex items-center gap-3 lg:gap-4 text-[#163146]/60 text-[10px] lg:text-xs font-bold tracking-[0.2em] uppercase">
@@ -74,7 +74,7 @@ const HomePage = () => {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.8rem] font-extrabold tracking-tighter text-[#163146] leading-[1.1] lg:leading-[1]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.8rem] font-extrabold tracking-tighter text-[#163146] leading-[1.1] lg:leading-[1]">
               Empowering
               <br />
               <span className="relative inline-block mt-2">
@@ -114,7 +114,7 @@ const HomePage = () => {
 
             {/* CTA Group */}
             <div className="flex flex-wrap items-center gap-4 lg:gap-8 pt-4">
-              <MagneticButton className="group bg-[#163146] hover:bg-[#0f2333] text-white px-8 lg:px-12 py-4 lg:py-6 text-sm lg:text-base font-bold rounded-full flex items-center gap-3 transition-all shadow-xl shadow-[#163146]/20 hover:shadow-2xl hover:shadow-[#163146]/30 active:scale-95">
+              <MagneticButton className="group bg-[#163146] hover:bg-[#0f2333] text-white px-8 lg:px-12 py-3 lg:py-6 text-sm lg:text-base font-bold rounded-full flex items-center justify-center gap-3 transition-all shadow-xl shadow-[#163146]/20 hover:shadow-2xl hover:shadow-[#163146]/30 active:scale-95 w-full sm:w-auto">
                 Join Waitlist
                 <motion.svg
                   animate={{ x: [0, 5, 0] }}
@@ -126,7 +126,7 @@ const HomePage = () => {
                 </motion.svg>
               </MagneticButton>
 
-              <button className="group text-[#163146] font-bold text-sm lg:text-base flex items-center gap-2 px-4 py-2 rounded-full hover:bg-[#163146]/5 transition-all duration-300">
+              <button className="group text-[#163146] font-bold text-sm lg:text-base flex items-center justify-center gap-2 px-4 py-2 rounded-full hover:bg-[#163146]/5 transition-all duration-300 w-full sm:w-auto">
                 How it Works
                 <div className="w-8 h-8 rounded-full bg-[#986a41]/10 flex items-center justify-center group-hover:bg-[#986a41]/20 transition-colors">
                   <svg className="w-4 h-4 text-[#986a41] group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
