@@ -29,7 +29,7 @@ const HomePage = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] lg:min-h-screen flex flex-col justify-center px-5 sm:px-8 lg:px-12 overflow-hidden pt-6 lg:pt-24 pb-6 lg:pb-16 bg-[#fdfdfd]">
+      <section className="relative min-h-[80vh] lg:min-h-screen flex flex-col justify-center px-5 sm:px-8 lg:px-12 overflow-hidden pt-36 lg:pt-24 pb-12 lg:pb-16 bg-[#fdfdfd]">
 
         {/* Premium Background: Radial Gradient + Dot Grid */}
         <div className="absolute inset-0 bg-[#fdfdfd] overflow-hidden -z-10">
@@ -39,11 +39,8 @@ const HomePage = () => {
               background: 'radial-gradient(circle at 70% 30%, #986a4108 0%, transparent 70%), radial-gradient(circle at 20% 80%, #16314605 0%, transparent 60%)'
             }}
           />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.035 }}
-            transition={{ duration: 2 }}
-            className="absolute inset-0 pointer-events-none"
+          <div
+            className="absolute inset-0 pointer-events-none opacity-[0.035]"
             style={{
               backgroundImage: 'radial-gradient(#163146 1.2px, transparent 1.2px)',
               backgroundSize: '32px 32px'
@@ -62,14 +59,14 @@ const HomePage = () => {
 
           {/* Left Column: Typography & Content */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col space-y-4 lg:space-y-10 mt-6 lg:mt-0 max-w-2xl lg:max-w-none"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-4 lg:space-y-10 mt-6 lg:mt-0 max-w-2xl lg:max-w-none mx-auto lg:mx-0"
           >
             {/* Top Tagline */}
-            <div className="flex items-center gap-3 lg:gap-4 text-[#163146]/60 text-[10px] lg:text-xs font-bold tracking-[0.2em] uppercase">
-              <div className="w-8 lg:w-12 h-px bg-[#986a41]/40" />
+            <div className="flex items-center justify-center lg:justify-start gap-3 lg:gap-4 text-[#163146]/60 text-[10px] lg:text-xs font-bold tracking-[0.2em] uppercase">
+              <div className="w-8 lg:w-12 h-px bg-[#986a41]/40 hidden lg:block" />
               NIL Management Evolved
             </div>
 
@@ -82,13 +79,12 @@ const HomePage = () => {
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={words[index]}
-                      initial={{ opacity: 0, y: 20, rotateX: -90 }}
-                      animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                      exit={{ opacity: 0, y: -20, rotateX: 90 }}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
                       transition={{
-                        duration: 0.6,
-                        ease: [0.23, 1, 0.32, 1],
-                        rotateX: { duration: 0.5 }
+                        duration: 0.4,
+                        ease: [0.23, 1, 0.32, 1]
                       }}
                       className="inline-block"
                     >
@@ -108,12 +104,12 @@ const HomePage = () => {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-base lg:text-xl text-slate-500 max-w-lg font-light leading-relaxed">
+            <p className="text-base lg:text-xl text-slate-500 max-w-lg mx-auto lg:mx-0 font-light leading-relaxed">
               Architecting the future of NIL. We match athletes with trusted advisors — <span className="text-[#163146] font-medium border-b border-[#986a41]/30">fast, smart, and free.</span>
             </p>
 
             {/* CTA Group */}
-            <div className="flex flex-wrap items-center gap-4 lg:gap-8 pt-4">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-8 pt-4">
               <MagneticButton className="group bg-[#163146] hover:bg-[#0f2333] text-white px-8 lg:px-12 py-3 lg:py-6 text-sm lg:text-base font-bold rounded-full flex items-center justify-center gap-3 transition-all shadow-xl shadow-[#163146]/20 hover:shadow-2xl hover:shadow-[#163146]/30 active:scale-95 w-full sm:w-auto">
                 Join Waitlist
                 <motion.svg
@@ -139,7 +135,7 @@ const HomePage = () => {
             {/* Redundant Community Card removed to favor the premium floating UI */}
 
             {/* Feature List: Grid on Mobile, Flex on Desktop */}
-            <div className="grid grid-cols-2 lg:flex lg:flex-wrap items-center gap-x-6 gap-y-3 pt-6 lg:pt-8 border-t border-slate-100">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-3 pt-6 lg:pt-8 border-t border-slate-100">
               {[
                 { icon: User, text: "Free for Athletes" },
                 { icon: CheckCircle, text: "Vetted Pros" },
@@ -161,11 +157,11 @@ const HomePage = () => {
             className="relative lg:block"
           >
             {/* Main Image Container with Parallax-ready feel */}
-            <div className="relative group perspective-1000">
+            <div className="relative group">
               <motion.div
-                whileHover={{ rotateY: -5, rotateX: 5, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(22,49,70,0.2)] bg-white p-2.5 lg:p-3"
+                whileHover={{ y: -5, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                className="relative rounded-[3rem] overflow-hidden shadow-[0_40px_80px_-20px_rgba(22,49,70,0.15)] bg-white p-2.5 lg:p-3"
               >
                 <div className="rounded-[2.5rem] overflow-hidden aspect-4/5 bg-slate-50 relative">
                   {/* Subtle Aura/Shadow Glow */}
@@ -181,10 +177,10 @@ const HomePage = () => {
 
               {/* Floating UI Elements - More interactive */}
               <motion.div
-                initial={{ x: 20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.8 }}
-                whileHover={{ y: -5, scale: 1.05 }}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                whileHover={{ y: -2, scale: 1.02 }}
                 className="absolute top-12 -right-6 lg:-right-12 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl p-4 lg:p-5 border border-white/50 flex items-center gap-4 z-20 cursor-default"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#986a41]/10 flex items-center justify-center">
@@ -197,10 +193,10 @@ const HomePage = () => {
               </motion.div>
 
               <motion.div
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 1 }}
-                whileHover={{ y: 5, scale: 1.05 }}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                whileHover={{ y: 2, scale: 1.02 }}
                 className="absolute bottom-16 -left-6 lg:-left-16 bg-[#163146] text-white rounded-4xl shadow-2xl p-5 lg:p-6 z-20 min-w-[220px] cursor-default"
               >
                 <div className="flex items-center gap-4">

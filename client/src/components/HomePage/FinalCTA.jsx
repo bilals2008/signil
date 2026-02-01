@@ -2,14 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import MagneticButton from '@/components/ui/MagneticButton'
 
-// Pre-generate stable stardust particles outside the component
-const STARDUST = [...Array(12)].map((_, i) => ({
+// Stardust particles - Simplified for performance
+const STARDUST = [...Array(8)].map((_, i) => ({
     id: i,
-    top: `${(i * 11) % 100}%`,
-    left: `${(i * 19) % 100}%`,
-    duration: 8 + (i % 12),
-    delay: i % 5,
-    size: (i % 3) + 1
+    top: `${(i * 13) % 100}%`,
+    left: `${(i * 23) % 100}%`,
+    size: (i % 2) + 1
 }));
 
 const FinalCTA = () => {
@@ -19,23 +17,9 @@ const FinalCTA = () => {
             {/* Premium Dark Gradient Background */}
             <div className="absolute inset-0 bg-linear-to-b from-[#163146] to-[#0a1824] -z-10" />
 
-            {/* Advanced Ambient Glows */}
-            <motion.div
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.1, 0.2, 0.1]
-                }}
-                transition={{ duration: 10, repeat: Infinity }}
-                className="absolute -top-[20%] -left-[10%] w-[60%] h-[80%] bg-[#986a41] blur-[150px] rounded-full pointer-events-none"
-            />
-            <motion.div
-                animate={{
-                    scale: [1.2, 1, 1.2],
-                    opacity: [0.15, 0.25, 0.15]
-                }}
-                transition={{ duration: 15, repeat: Infinity }}
-                className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[80%] bg-[#163146] blur-[180px] rounded-full pointer-events-none"
-            />
+            {/* Advanced Ambient Glows - Simplified */}
+            <div className="absolute -top-[20%] -left-[10%] w-[60%] h-[80%] bg-[#986a41] blur-[150px] rounded-full pointer-events-none opacity-[0.1]" />
+            <div className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[80%] bg-[#163146] blur-[180px] rounded-full pointer-events-none opacity-[0.15]" />
 
             {/* Decorative Grid Overlay */}
             <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -45,21 +29,11 @@ const FinalCTA = () => {
                 }}
             />
 
-            {/* Stardust Particle System */}
+            {/* Stardust Particle System - Static for performance */}
             {STARDUST.map(star => (
-                <motion.div
+                <div
                     key={star.id}
-                    animate={{
-                        opacity: [0, 0.4, 0],
-                        scale: [0.5, 1, 0.5],
-                        y: [0, -40, 0]
-                    }}
-                    transition={{
-                        duration: star.duration,
-                        repeat: Infinity,
-                        delay: star.delay
-                    }}
-                    className="absolute bg-white rounded-full pointer-events-none blur-[0.5px]"
+                    className="absolute bg-white rounded-full pointer-events-none blur-[0.5px] opacity-20"
                     style={{
                         top: star.top,
                         left: star.left,
@@ -70,10 +44,10 @@ const FinalCTA = () => {
             ))}
 
             <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
                 className="max-w-5xl w-full flex flex-col items-center gap-12 relative z-10"
             >
                 {/* Visual Accent */}
@@ -97,16 +71,14 @@ const FinalCTA = () => {
 
                         <MagneticButton className="group bg-[#986a41] hover:bg-[#855c3a] text-white px-8 md:px-11 py-3 md:py-4.5 text-base md:text-lg font-black rounded-full transition-all shadow-2xl shadow-[#986a41]/30 hover:shadow-[#986a41]/50 flex items-center justify-center gap-4 active:scale-95 border-b-4 border-[#7a5435] w-full md:w-auto">
                             Join the Limited Waitlist
-                            <motion.svg
-                                animate={{ x: [0, 5, 0] }}
-                                transition={{ duration: 1.5, repeat: Infinity }}
+                            <svg
                                 className="w-4 h-4 md:w-5 md:h-5"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
                             >
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                            </motion.svg>
+                            </svg>
                         </MagneticButton>
                     </div>
 

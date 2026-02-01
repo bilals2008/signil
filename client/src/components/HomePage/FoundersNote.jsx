@@ -23,14 +23,14 @@ const FoundersNote = () => {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-[#986a41]/20 to-transparent" />
 
             <motion.div
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
                 className="max-w-4xl w-full relative"
             >
                 {/* Decoration: Subtle Glow */}
-                <div className="absolute -inset-20 bg-[#986a41]/5 blur-[120px] rounded-full -z-10" />
+                <div className="absolute -inset-px bg-linear-to-r from-slate-200 via-slate-100 to-slate-200 rounded-full blur-[2px] opacity-20 group-hover:opacity-40 transition-opacity" />
 
                 <div className="bg-white/70 backdrop-blur-md border border-[#986a41]/10 rounded-[3rem] p-5 md:p-16 lg:p-24 shadow-[0_40px_100px_-30px_rgba(152,106,65,0.12)] flex flex-col items-center gap-10 md:gap-16 text-center relative overflow-hidden group">
 
@@ -39,7 +39,7 @@ const FoundersNote = () => {
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1.5, delay: 0.5 }}
+                        transition={{ duration: 1, delay: 0.2 }}
                         className="absolute top-0 left-0 w-full h-2 bg-linear-to-r from-transparent via-[#986a41]/40 to-transparent origin-center"
                     />
 
@@ -48,14 +48,14 @@ const FoundersNote = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
+                        transition={{ delay: 0.2 }}
                         className="inline-flex items-center gap-3 bg-[#986a41] text-white text-[10px] sm:text-[11px] font-black tracking-[0.4em] px-8 py-3.5 rounded-full uppercase shadow-2xl shadow-[#986a41]/30"
                     >
                         A Letter from the Founders
                     </motion.div>
 
                     {/* Heading */}
-                    <h2 className="text-[#163146] text-2xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1] max-w-2xl">
+                    <h2 className="text-[#163146] text-2xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-none max-w-2xl">
                         From Confusion to Confidence <br />
                         <span className="text-[#986a41] font-serif italic font-medium">One Connection</span> at a Time
                     </h2>
@@ -71,7 +71,7 @@ const FoundersNote = () => {
                         <motion.p
                             initial={{ opacity: 0.5 }}
                             whileInView={{ opacity: 1 }}
-                            className="font-bold text-[#163146] italic bg-[#986a41]/5 p-5 md:p-8 rounded-[2rem] border border-[#986a41]/10"
+                            className="font-bold text-[#163146] italic bg-[#986a41]/5 p-5 md:p-8 rounded-4xl border border-[#986a41]/10"
                         >
                             Signil is the platform we wish existed for our friends and every athlete stepping into the future of NIL, because everyone deserves a team they can trust.
                         </motion.p>
@@ -82,7 +82,7 @@ const FoundersNote = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.8 }}
+                        transition={{ delay: 0.4 }}
                         className="mt-4 flex flex-col items-center gap-4"
                     >
                         <div className="w-16 h-px bg-[#986a41]/40 mb-2" />
@@ -94,7 +94,7 @@ const FoundersNote = () => {
                                 initial={{ width: 0 }}
                                 whileInView={{ width: "100%" }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
+                                transition={{ duration: 1, delay: 0.6, ease: "easeInOut" }}
                                 className="text-[#986a41] font-serif text-4xl md:text-6xl italic font-medium mt-2 whitespace-nowrap overflow-hidden"
                             >
                                 Ryan & Saurav
@@ -102,7 +102,7 @@ const FoundersNote = () => {
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 2.2 }}
+                                transition={{ delay: 1.2 }}
                                 className="absolute -bottom-2 -right-8 w-6 h-6 rounded-full border-2 border-[#986a41]/30 flex items-center justify-center"
                             >
                                 <div className="w-1.5 h-1.5 rounded-full bg-[#986a41]/60" />

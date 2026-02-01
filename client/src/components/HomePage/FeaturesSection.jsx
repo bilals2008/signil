@@ -59,11 +59,11 @@ const FeaturesSection = () => {
                     </motion.div>
 
                     <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.1, duration: 0.8 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#163146] leading-[1.1]"
+                        transition={{ duration: 0.6 }}
+                        className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#163146] leading-tight"
                     >
                         Built for <span className="text-[#986a41] italic font-serif font-medium">athletes</span>. Trusted by <span className="text-[#986a41] italic font-serif font-medium">advisors</span>.
                         <br className="hidden md:block mt-2" />
@@ -76,12 +76,11 @@ const FeaturesSection = () => {
                     {features.map((feature, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: idx * 0.15, duration: 0.6 }}
-                            whileHover={{ y: -8 }}
-                            className="group relative flex flex-col p-5 lg:p-10 bg-white rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-[#163146]/5 transition-all duration-500"
+                            transition={{ delay: idx * 0.1, duration: 0.5 }}
+                            className="group relative flex flex-col p-5 lg:p-10 bg-white rounded-4xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500"
                         >
                             {/* Icon Container */}
                             <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-[#163146]/5 flex items-center justify-center mb-8 group-hover:bg-[#986a41]/10 transition-colors duration-500">
@@ -97,7 +96,7 @@ const FeaturesSection = () => {
                                 <ul className="flex flex-col gap-2 lg:gap-4">
                                     {feature.points.map((point, i) => (
                                         <li key={i} className="flex gap-3 text-slate-500 text-sm lg:text-base leading-relaxed group/item">
-                                            <div className="mt-1.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#986a41]/10 flex items-center justify-center group-hover/item:bg-[#986a41]/20 transition-colors">
+                                            <div className="mt-1.5 shrink-0 w-4 h-4 rounded-full bg-[#986a41]/10 flex items-center justify-center group-hover/item:bg-[#986a41]/20 transition-colors">
                                                 <Check className="w-2.5 h-2.5 text-[#986a41]" />
                                             </div>
                                             <span className="font-light">{point}</span>

@@ -98,22 +98,12 @@ const ScoutSection = () => {
 
             {/* Premium Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div
-                    animate={{
-                        scale: [1, 1.1, 1],
-                        opacity: [0.15, 0.25, 0.15]
-                    }}
-                    transition={{ duration: 10, repeat: Infinity }}
-                    className="absolute top-0 right-0 w-[600px] h-[600px] blur-[120px] rounded-full"
+                <div
+                    className="absolute top-0 right-0 w-[600px] h-[600px] blur-[120px] rounded-full opacity-[0.15]"
                     style={{ background: 'radial-gradient(circle, #986a41 0%, transparent 70%)' }}
                 />
-                <motion.div
-                    animate={{
-                        scale: [1.1, 1, 1.1],
-                        opacity: [0.05, 0.15, 0.05]
-                    }}
-                    transition={{ duration: 12, repeat: Infinity }}
-                    className="absolute bottom-0 left-0 w-[700px] h-[700px] blur-[150px] rounded-full"
+                <div
+                    className="absolute bottom-0 left-0 w-[700px] h-[700px] blur-[150px] rounded-full opacity-[0.05]"
                     style={{ background: 'radial-gradient(circle, #163146 0%, transparent 70%)' }}
                 />
 
@@ -126,34 +116,18 @@ const ScoutSection = () => {
                     }}
                 />
 
-                {/* Floating Ambient Particles */}
-                {SCOUT_PARTICLES.map(p => (
-                    <motion.div
-                        key={p.id}
-                        animate={{
-                            y: [0, -50, 0],
-                            opacity: [0, 0.2, 0]
-                        }}
-                        transition={{
-                            duration: p.duration,
-                            repeat: Infinity,
-                            delay: p.delay
-                        }}
-                        className="absolute w-1.5 h-1.5 bg-[#986a41] rounded-full blur-[1px]"
-                        style={{ top: p.top, left: p.left }}
-                    />
-                ))}
+                {/* Floating Ambient Particles Removed for performance */}
             </div>
 
             <div className="max-w-7xl w-full flex flex-col gap-10 lg:gap-24 relative z-10">
 
                 {/* Heading Area */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                    className="text-center space-y-8" // Added back the className for the motion.div
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="text-center space-y-8"
                 >
                     <div className="flex flex-col gap-8 items-center"> {/* Added items-center for centering */}
                         <motion.div
@@ -185,11 +159,11 @@ const ScoutSection = () => {
                         {scoutFeatures.map((feature, idx) => (
                             <motion.div
                                 key={idx}
-                                initial={{ opacity: 0, x: -50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, y: 15 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: idx * 0.2, ease: "easeOut" }}
-                                className="group relative p-5 lg:p-10 rounded-[2.5rem] bg-white/2 border border-white/5 hover:bg-white/5 hover:border-[#986a41]/30 transition-all duration-700 flex flex-col sm:flex-row gap-4 lg:gap-8 shadow-2xl"
+                                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                                className="group relative p-5 lg:p-10 rounded-[2.5rem] bg-white/2 border border-white/5 hover:bg-white/5 hover:border-[#986a41]/30 transition-all duration-500 flex flex-col sm:flex-row gap-4 lg:gap-8 shadow-2xl"
                             >
                                 <div className="shrink-0 w-16 h-16 rounded-2xl bg-[#10202F] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl">
                                     <feature.icon className="w-8 h-8 text-[#986a41]" />
@@ -213,18 +187,14 @@ const ScoutSection = () => {
 
                     {/* Right: Scout Chat Mockup */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9, rotateX: 10 }}
-                        whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
-                        className="relative perspective-2000"
+                        transition={{ duration: 0.8 }}
+                        className="relative"
                     >
                         {/* Interactive Glow */}
-                        <motion.div
-                            animate={{ opacity: [0.05, 0.15, 0.05] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                            className="absolute -inset-10 bg-[#986a41] blur-[100px] rounded-[4rem] -z-10"
-                        />
+                        <div className="absolute -inset-10 bg-[#986a41] blur-[100px] rounded-[4rem] -z-10 opacity-[0.05]" />
 
                         <div className="bg-[#faf7f2] rounded-[3rem] p-3 shadow-[0_50px_120px_-20px_rgba(0,0,0,0.6)] border border-white/10 overflow-hidden font-sans">
                             {/* Window Header */}
@@ -257,9 +227,9 @@ const ScoutSection = () => {
                                     {messages.map((msg) => (
                                         <motion.div
                                             key={msg.id}
-                                            initial={{ opacity: 0, y: 20, scale: 0.9, rotate: msg.role === 'user' ? 2 : -2 }}
-                                            animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
-                                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.3 }}
                                             className={`flex gap-5 items-start ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
                                         >
                                             <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-white font-black shrink-0 text-[11px] shadow-2xl ${msg.role === 'scout' ? 'bg-[#1a2e41]' : 'bg-[#986a41]'}`}>
@@ -292,7 +262,6 @@ const ScoutSection = () => {
                                                 <motion.div
                                                     key={i}
                                                     animate={{
-                                                        scale: [0.8, 1.2, 0.8],
                                                         opacity: [0.3, 1, 0.3]
                                                     }}
                                                     transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.2 }}
@@ -326,15 +295,7 @@ const ScoutSection = () => {
                             </div>
                         </div>
 
-                        {/* Floating elements for extra depth */}
-                        <motion.div
-                            animate={{
-                                y: [0, -20, 0],
-                                rotate: [0, 5, 0]
-                            }}
-                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-16 -right-16 w-40 h-40 bg-linear-to-br from-[#986a41] to-transparent opacity-10 rounded-full blur-[80px]"
-                        />
+                        {/* Floating elements for extra depth - Removed for performance */}
                     </motion.div>
 
                 </div>
