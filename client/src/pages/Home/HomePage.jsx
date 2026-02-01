@@ -172,7 +172,7 @@ const HomePage = () => {
                   <div className="absolute inset-0 bg-linear-to-tr from-[#163146]/10 to-transparent pointer-events-none" />
 
                   <img
-                    src="/src/assets/hero-athlete.png"
+                    src="/assets/hero-athlete.png"
                     alt="NIL Success"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-20 lg:opacity-100"
                   />
@@ -208,7 +208,7 @@ const HomePage = () => {
                     {[1, 2, 3].map(i => (
                       <div key={i} className="w-10 h-10 lg:w-11 lg:h-11 rounded-full border-2 border-[#163146] bg-slate-200 overflow-hidden shadow-xl ring-2 ring-[#986a41]/20">
                         <img
-                          src={`/src/assets/avatar-${i}.png`}
+                          src={`/assets/avatar-${i}.png`}
                           alt="Athlete"
                           className="w-full h-full object-cover"
                         />
