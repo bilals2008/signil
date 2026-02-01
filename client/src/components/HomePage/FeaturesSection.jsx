@@ -1,6 +1,7 @@
-// File: client/src/components/sections/FeaturesSection.jsx
+// File: client/src/components/HomePage/FeaturesSection.jsx
 import React from 'react';
-import { Users, TrendingUp, Handshake } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Users, TrendingUp, Handshake, Check } from 'lucide-react';
 
 const features = [
     {
@@ -34,43 +35,80 @@ const features = [
 
 const FeaturesSection = () => {
     return (
-        <section className="w-full bg-[#faf7f2] py-20 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-            <div className="max-w-7xl w-full flex flex-col gap-16">
+        <section className="w-full relative py-24 lg:py-32 px-5 sm:px-8 lg:px-12 bg-white overflow-hidden">
+            {/* Background Decorative Elements */}
+            <div className="absolute inset-0 pointer-events-none -z-10">
+                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#986a41]/5 rounded-full blur-[120px] opacity-60" />
+                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#163146]/5 rounded-full blur-[120px] opacity-60" />
+                <div
+                    className="absolute inset-0 opacity-[0.03]"
+                    style={{ backgroundImage: 'radial-gradient(#163146 1px, transparent 1px)', backgroundSize: '40px 40px' }}
+                />
+            </div>
 
-                {/* Heading */}
-                <h2 className="text-4xl md:text-5xl font-serif text-center font-medium leading-tight text-[#163146]">
-                    Built for <span className="text-[#986a41]">athletes</span>. Trusted by <span className="text-[#986a41]">advisors</span>.
-                    <br className="hidden md:block" />
-                    Designed for the <span className="text-[#986a41]">NIL</span> era.
-                </h2>
+            <div className="max-w-7xl mx-auto flex flex-col gap-16 lg:gap-24">
+                {/* Header Section */}
+                <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#986a41]/10 border border-[#986a41]/20"
+                    >
+                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#986a41]">Platform Features</span>
+                    </motion.div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1, duration: 0.8 }}
+                        className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#163146] leading-[1.1]"
+                    >
+                        Built for <span className="text-[#986a41] italic font-serif font-medium">athletes</span>. Trusted by <span className="text-[#986a41] italic font-serif font-medium">advisors</span>.
+                        <br className="hidden md:block mt-2" />
+                        Designed for the <span className="bg-linear-to-r from-[#163146] to-[#986a41] bg-clip-text text-transparent">NIL era</span>.
+                    </motion.h2>
+                </div>
+
+                {/* Features Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
                     {features.map((feature, idx) => (
-                        <div key={idx} className="flex flex-col gap-8 items-center md:items-start text-center md:text-left">
-
-                            {/* Icon Card */}
-                            <div className="w-full aspect-square bg-[#1a2e41] rounded-xl flex items-center justify-center shadow-lg">
-                                <feature.icon className="w-24 h-24 text-[#986a41] stroke-[1.5]" />
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.15, duration: 0.6 }}
+                            whileHover={{ y: -8 }}
+                            className="group relative flex flex-col p-8 lg:p-10 bg-white rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-[#163146]/5 transition-all duration-500"
+                        >
+                            {/* Icon Container */}
+                            <div className="w-16 h-16 rounded-2xl bg-[#163146]/5 flex items-center justify-center mb-8 group-hover:bg-[#986a41]/10 transition-colors duration-500">
+                                <feature.icon className="w-8 h-8 text-[#163146] group-hover:text-[#986a41] transition-colors duration-500 stroke-[1.5]" />
                             </div>
 
-                            {/* Text Content */}
-                            <div className="flex flex-col gap-4">
-                                <h3 className="text-2xl font-serif font-medium text-[#163146] leading-snug">
+                            {/* Content */}
+                            <div className="flex flex-col gap-6">
+                                <h3 className="text-2xl font-bold text-[#163146] leading-tight group-hover:text-[#986a41] transition-colors duration-500">
                                     {feature.title}
                                 </h3>
 
-                                <ul className="flex flex-col gap-3">
+                                <ul className="flex flex-col gap-4">
                                     {feature.points.map((point, i) => (
-                                        <li key={i} className="text-gray-600 text-[15px] leading-relaxed relative pl-4">
-                                            <span className="absolute left-0 top-2 w-1.5 h-1.5 bg-[#986a41] rounded-full" />
-                                            {point}
+                                        <li key={i} className="flex gap-3 text-slate-500 text-base leading-relaxed group/item">
+                                            <div className="mt-1.5 flex-shrink-0 w-4 h-4 rounded-full bg-[#986a41]/10 flex items-center justify-center group-hover/item:bg-[#986a41]/20 transition-colors">
+                                                <Check className="w-2.5 h-2.5 text-[#986a41]" />
+                                            </div>
+                                            <span className="font-light">{point}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
 
-                        </div>
+                            {/* Subtle Accent Glow */}
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#986a41]/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                        </motion.div>
                     ))}
                 </div>
             </div>
