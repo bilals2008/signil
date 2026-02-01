@@ -1,0 +1,63 @@
+// File: client/src/pages/Home/HomePage.jsx
+import React from 'react'
+import { User, CheckCircle, BrainCircuit } from 'lucide-react'
+import MagneticButton from '@/components/ui/MagneticButton'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+
+const HomePage = () => {
+  return (
+    <div className="min-h-screen w-full bg-[#fdfdfd] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+
+      <Navbar />
+
+      {/* Background decoration (optional subtle gradient) */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 via-[#fdfdfd] to-[#fdfdfd] -z-10" />
+
+      <div className="max-w-4xl w-full flex flex-col items-center text-center gap-8 md:gap-10 z-10">
+
+        {/* Main Heading */}
+        <h1 className="text-5xl md:text-7xl font-serif font-medium tracking-tight text-[#163146] leading-[1.1]">
+          <span>Empowering</span>
+          <br />
+          <span className="text-[#986a41] italic font-semibold">In</span>
+          <br />
+          <span>to Win Off the Field</span>
+        </h1>
+
+        {/* Subheadline */}
+        <p className="text-lg md:text-xl text-gray-600 max-w-2xl font-light">
+          We match NIL athletes with trusted advisors - <span className="font-bold text-[#986a41]">fast, smart, and free</span>
+        </p>
+
+        {/* Feature Points */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 mt-2 w-full">
+          <div className="flex items-center gap-2 text-[#163146]/80 font-medium">
+            <User className="w-5 h-5 text-[#986a41]" />
+            <span>Free for Athletes</span>
+          </div>
+          <div className="flex items-center gap-2 text-[#163146]/80 font-medium">
+            <CheckCircle className="w-5 h-5 text-[#986a41]" />
+            <span>Vetted Professionals</span>
+          </div>
+          <div className="flex items-center gap-2 text-[#163146]/80 font-medium">
+            <BrainCircuit className="w-5 h-5 text-[#986a41]" />
+            <span>AI-Powered Matching</span>
+          </div>
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-8">
+          <MagneticButton className="bg-[#986a41] hover:bg-[#855a35] text-white shadow-lg shadow-[#986a41]/20 font-semibold px-10 py-4 text-lg">
+            Join the Limited Waitlist
+          </MagneticButton>
+        </div>
+
+      </div>
+
+      <Footer />
+    </div>
+  )
+}
+
+export default HomePage
